@@ -13,25 +13,14 @@ namespace Farplan_App_GUI
 {
     public partial class Form1 : Form
     {
-        Transport t = new Transport();        
+        Transport t = new Transport();
+        
 
         public Form1()
         {
             InitializeComponent();
-        }
-
-
-
-
-
-
-
-
-
-        private void btn_Switch_Click(object sender, EventArgs e)
-        {
-            tBvon.Text = tBnach.Text;
-            tBnach.Text = tBvon.Text;
+            tBvon.Focus();
+            tBvon.Select();
         }
 
         private void tBnach_KeyPress(object sender, KeyPressEventArgs e)
@@ -95,8 +84,8 @@ namespace Farplan_App_GUI
                 DateTime Abfahrtszeit = Convert.ToDateTime(verbindung.From.Departure);
                 item.SubItems.Add(Abfahrtszeit.TimeOfDay.ToString());
                 item.SubItems.Add(verbindung.From.Platform);
-                item.Text = Abfahrtszeit.Date.ToString("dd.MM.yy");
-                item.SubItems.Add(verbindung.Duration.ToString());
+                item.Text = Abfahrtszeit.Date.ToString("ddd.dd.MM");
+                item.SubItems.Add(verbindung.Duration);
                 listView1.Items.AddRange(new ListViewItem[] { item });
             }
         }
@@ -104,6 +93,27 @@ namespace Farplan_App_GUI
         private void btn_Abfahrt_Click(object sender, EventArgs e)
         {
           
+        }
+        //Die Funktion mit dem Austauschen der Stationen funktioniert nicht//
+        private void btn_Switch_Click_1(object sender, EventArgs e)
+        {
+            listBox3.Items.Add(tBnach.Text);
+            listBox1.Items.Add(tBvon.Text);           
+            tBnach.Text = listBox1.Items[0].ToString();
+            tBvon.Text = listBox3.Items[0].ToString();            
+            listBox1.Items.Clear();
+            listBox3.Items.Clear();
+
+        }
+
+        private void tBvon_DoubleClick(object sender, EventArgs e)
+        {
+            tBvon.Text = String.Empty;
+        }
+
+        private void tBnach_DoubleClick(object sender, EventArgs e)
+        {
+            tBnach.Text = String.Empty;
         }
     }
 }
