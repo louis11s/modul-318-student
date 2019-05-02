@@ -14,7 +14,7 @@ namespace Farplan_App_GUI
     public partial class Form1 : Form
     {
         Transport t = new Transport();
-        
+        Stations myStations;
 
         public Form1()
         {
@@ -26,7 +26,6 @@ namespace Farplan_App_GUI
         private void tBnach_KeyPress(object sender, KeyPressEventArgs e)
         {
             listBox3.Items.Clear();
-            Transport t = new Transport();
             Stations myStations = t.GetStations(tBvon.Text);
             foreach (Station station in myStations.StationList)
             {
@@ -37,11 +36,11 @@ namespace Farplan_App_GUI
         private void tBvon_TextChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-            Transport t = new Transport();
-            Stations myStations = t.GetStations(tBvon.Text);
+
+            myStations = t.GetStations(tBvon.Text);
             foreach (Station station in myStations.StationList)
             {
-                listBox1.Items.Add(station.Name);
+               listBox1.Items.Add(station.Name);
             }
 
         }
@@ -54,7 +53,6 @@ namespace Farplan_App_GUI
         private void tBnach_TextChanged(object sender, EventArgs e)
         {
             listBox3.Items.Clear();
-            Transport t = new Transport();
             Stations myStations = t.GetStations(tBnach.Text);
             foreach (Station station in myStations.StationList)
             {
@@ -92,7 +90,7 @@ namespace Farplan_App_GUI
 
         private void btn_Abfahrt_Click(object sender, EventArgs e)
         {
-          
+            showStationBoard();
         }
         //Die Funktion mit dem Austauschen der Stationen funktioniert nicht//
         private void btn_Switch_Click_1(object sender, EventArgs e)
@@ -101,8 +99,7 @@ namespace Farplan_App_GUI
             listBox1.Items.Add(tBvon.Text);           
             tBnach.Text = listBox1.Items[0].ToString();
             tBvon.Text = listBox3.Items[0].ToString();            
-            listBox1.Items.Clear();
-            listBox3.Items.Clear();
+
 
         }
 
@@ -114,6 +111,40 @@ namespace Farplan_App_GUI
         private void tBnach_DoubleClick(object sender, EventArgs e)
         {
             tBnach.Text = String.Empty;
+        }
+
+        private void showStationBoard()
+        {
+            listView1.Items.Clear();
+
+            string name = tBvon.Text;
+            string id = "";
+
+            foreach (Station s in myStations.StationList)
+            {
+                if (s.Name == name)
+                {
+                    id = s.Id;
+                    break;
+                }
+            }
+
+            StationBoardRoot stationBoard = t.GetStationBoard(name, id);
+            foreach(StationBoard stationboard in stationBoard.Entries)
+            {
+                try
+                {
+                    ListViewItem item1 = new ListViewItem();
+                    item1.SubItems.Add(tBvon.Text);
+                    item1.SubItems.Add(stationboard.To);
+                    item1.SubItems.Add(stationboard.Entries.Departure.ToShortTimeString());
+                    listView1.Items.Add(item1);
+                }
+                catch
+                {
+                    MessageBox.Show("Ungültiger Wert");
+                }
+            }
         }
     }
 }

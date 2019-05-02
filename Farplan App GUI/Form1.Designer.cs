@@ -56,7 +56,7 @@
             this.btn_Suchen.Location = new System.Drawing.Point(911, 80);
             this.btn_Suchen.Name = "btn_Suchen";
             this.btn_Suchen.Size = new System.Drawing.Size(119, 78);
-            this.btn_Suchen.TabIndex = 0;
+            this.btn_Suchen.TabIndex = 3;
             this.btn_Suchen.Text = "Anzeigen";
             this.btn_Suchen.UseVisualStyleBackColor = false;
             this.btn_Suchen.Click += new System.EventHandler(this.btn_Suchen_Click);
@@ -85,7 +85,7 @@
             this.tBvon.Location = new System.Drawing.Point(98, 80);
             this.tBvon.Name = "tBvon";
             this.tBvon.Size = new System.Drawing.Size(287, 26);
-            this.tBvon.TabIndex = 3;
+            this.tBvon.TabIndex = 1;
             this.tBvon.TextChanged += new System.EventHandler(this.tBvon_TextChanged);
             this.tBvon.DoubleClick += new System.EventHandler(this.tBvon_DoubleClick);
             // 
@@ -95,7 +95,7 @@
             this.tBnach.Location = new System.Drawing.Point(608, 80);
             this.tBnach.Name = "tBnach";
             this.tBnach.Size = new System.Drawing.Size(287, 26);
-            this.tBnach.TabIndex = 4;
+            this.tBnach.TabIndex = 2;
             this.tBnach.TextChanged += new System.EventHandler(this.tBnach_TextChanged);
             this.tBnach.DoubleClick += new System.EventHandler(this.tBnach_DoubleClick);
             // 
