@@ -38,13 +38,14 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btn_Abfahrt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_Switch = new System.Windows.Forms.Button();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.Datum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nach = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Abfahrtszeit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Gleis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Dauer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // btn_Suchen
@@ -70,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(489, 80);
+            this.label2.Location = new System.Drawing.Point(533, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 2;
@@ -86,7 +87,7 @@
             // 
             // tBnach
             // 
-            this.tBnach.Location = new System.Drawing.Point(564, 80);
+            this.tBnach.Location = new System.Drawing.Point(608, 80);
             this.tBnach.Name = "tBnach";
             this.tBnach.Size = new System.Drawing.Size(287, 26);
             this.tBnach.TabIndex = 4;
@@ -121,12 +122,13 @@
             // btn_Abfahrt
             // 
             this.btn_Abfahrt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Abfahrt.Location = new System.Drawing.Point(911, 166);
+            this.btn_Abfahrt.Location = new System.Drawing.Point(391, 76);
             this.btn_Abfahrt.Name = "btn_Abfahrt";
-            this.btn_Abfahrt.Size = new System.Drawing.Size(119, 78);
+            this.btn_Abfahrt.Size = new System.Drawing.Size(115, 34);
             this.btn_Abfahrt.TabIndex = 8;
             this.btn_Abfahrt.Text = "Abfahrtstafel";
             this.btn_Abfahrt.UseVisualStyleBackColor = true;
+            this.btn_Abfahrt.Click += new System.EventHandler(this.btn_Abfahrt_Click);
             // 
             // label4
             // 
@@ -140,20 +142,11 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Fahrplan";
             // 
-            // btn_Switch
-            // 
-            this.btn_Switch.Location = new System.Drawing.Point(420, 80);
-            this.btn_Switch.Name = "btn_Switch";
-            this.btn_Switch.Size = new System.Drawing.Size(37, 70);
-            this.btn_Switch.TabIndex = 11;
-            this.btn_Switch.Text = "§";
-            this.btn_Switch.UseVisualStyleBackColor = true;
-            // 
             // listBox3
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 20;
-            this.listBox3.Location = new System.Drawing.Point(564, 112);
+            this.listBox3.Location = new System.Drawing.Point(608, 112);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(287, 124);
             this.listBox3.TabIndex = 12;
@@ -162,10 +155,12 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Datum,
             this.Von,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.Nach,
+            this.Abfahrtszeit,
+            this.Gleis,
+            this.Dauer});
             this.listView1.Location = new System.Drawing.Point(98, 325);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(932, 306);
@@ -173,25 +168,35 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // Datum
+            // 
+            this.Datum.Text = "Datum";
+            this.Datum.Width = 120;
+            // 
             // Von
             // 
             this.Von.Text = "Von";
-            this.Von.Width = 100;
+            this.Von.Width = 120;
             // 
-            // columnHeader1
+            // Nach
             // 
-            this.columnHeader1.Text = "Nach";
-            this.columnHeader1.Width = 100;
+            this.Nach.Text = "Nach";
+            this.Nach.Width = 120;
             // 
-            // columnHeader2
+            // Abfahrtszeit
             // 
-            this.columnHeader2.Text = "Zeit";
-            this.columnHeader2.Width = 100;
+            this.Abfahrtszeit.Text = "Abfahrtszeit";
+            this.Abfahrtszeit.Width = 120;
             // 
-            // columnHeader3
+            // Gleis
             // 
-            this.columnHeader3.Text = "Abfahrt";
-            this.columnHeader3.Width = 100;
+            this.Gleis.Text = "Gleis";
+            this.Gleis.Width = 40;
+            // 
+            // Dauer
+            // 
+            this.Dauer.Text = "Dauer";
+            this.Dauer.Width = 100;
             // 
             // Form1
             // 
@@ -200,7 +205,6 @@
             this.ClientSize = new System.Drawing.Size(1069, 717);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.btn_Switch);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btn_Abfahrt);
             this.Controls.Add(this.listBox1);
@@ -231,13 +235,14 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btn_Abfahrt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_Switch;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader Datum;
         private System.Windows.Forms.ColumnHeader Von;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader Nach;
+        private System.Windows.Forms.ColumnHeader Abfahrtszeit;
+        private System.Windows.Forms.ColumnHeader Gleis;
+        private System.Windows.Forms.ColumnHeader Dauer;
     }
 }
 

@@ -31,7 +31,7 @@ namespace SwissTransport
         public string Operator { get; set; }
 
         [JsonProperty("stop")]
-        public Stop Stop { get; set; }
+        public Stop Entries { get; set; }
     }
 
     public class Stop
