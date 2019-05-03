@@ -175,6 +175,8 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(287, 124);
             this.listBox3.TabIndex = 28;
+            this.listBox3.DoubleClick += new System.EventHandler(this.listBox3_DoubleClick);
+            this.listBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBnach_KeyDown);
             // 
             // label4
             // 
@@ -213,6 +215,8 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(287, 124);
             this.listBox1.TabIndex = 25;
+            this.listBox1.DoubleClick += new System.EventHandler(this.listBox1_DoubleClick);
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBvon_KeyDown);
             // 
             // dateTimePicker1
             // 

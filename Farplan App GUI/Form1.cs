@@ -22,7 +22,7 @@ namespace Farplan_App_GUI
             tBvon.Focus();
             tBvon.Select();
         }
-
+        //Vorschläge in der listbox
         private void tBnach_KeyPress(object sender, KeyPressEventArgs e)
         {
             listBox3.Items.Clear();
@@ -36,7 +36,6 @@ namespace Farplan_App_GUI
         private void tBvon_TextChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
-
             myStations = t.GetStations(tBvon.Text);
             foreach (Station station in myStations.StationList)
             {
@@ -55,10 +54,18 @@ namespace Farplan_App_GUI
             }
 
         }
+        //Listbox zu Textbox
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            tBvon.Text = listBox1.SelectedItems[0].ToString();
-            listBox1.Items.Clear();
+            try
+            {
+                tBvon.Text = listBox1.SelectedItems[0].ToString();
+                listBox1.Items.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Fehler");
+            }
         }
 
         private void tBnach_TextChanged(object sender, EventArgs e)
@@ -80,8 +87,15 @@ namespace Farplan_App_GUI
 
         private void listBox3_DoubleClick(object sender, EventArgs e)
         {
-            tBnach.Text = listBox3.SelectedItems[0].ToString();
-            listBox3.Items.Clear();
+            try
+            {
+                tBnach.Text = listBox3.SelectedItems[0].ToString();
+                listBox3.Items.Clear();
+            }
+            catch 
+            {
+                MessageBox.Show("Fehler");
+            }
         }
         private void btn_Suchen_Click(object sender, EventArgs e)
         {
@@ -229,6 +243,7 @@ namespace Farplan_App_GUI
             }
             catch
             {
+                ChangeTab(tabPage1);
                 MessageBox.Show("Geben Sie bitte eine gültige Station ein.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
