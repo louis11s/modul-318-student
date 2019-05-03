@@ -52,6 +52,7 @@
             // btn_Suchen
             // 
             this.btn_Suchen.BackColor = System.Drawing.Color.Gray;
+            this.btn_Suchen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Suchen.ForeColor = System.Drawing.Color.White;
             this.btn_Suchen.Location = new System.Drawing.Point(911, 80);
             this.btn_Suchen.Name = "btn_Suchen";
@@ -81,23 +82,25 @@
             // 
             // tBvon
             // 
-            this.tBvon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tBvon.BackColor = System.Drawing.Color.White;
             this.tBvon.Location = new System.Drawing.Point(98, 80);
             this.tBvon.Name = "tBvon";
             this.tBvon.Size = new System.Drawing.Size(287, 26);
             this.tBvon.TabIndex = 1;
             this.tBvon.TextChanged += new System.EventHandler(this.tBvon_TextChanged);
             this.tBvon.DoubleClick += new System.EventHandler(this.tBvon_DoubleClick);
+            this.tBvon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBvon_KeyDown);
             // 
             // tBnach
             // 
-            this.tBnach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tBnach.BackColor = System.Drawing.Color.White;
             this.tBnach.Location = new System.Drawing.Point(608, 80);
             this.tBnach.Name = "tBnach";
             this.tBnach.Size = new System.Drawing.Size(287, 26);
             this.tBnach.TabIndex = 2;
             this.tBnach.TextChanged += new System.EventHandler(this.tBnach_TextChanged);
             this.tBnach.DoubleClick += new System.EventHandler(this.tBnach_DoubleClick);
+            this.tBnach.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBnach_KeyDown);
             // 
             // label3
             // 
@@ -113,11 +116,11 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(98, 250);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(315, 26);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 5;
             // 
             // listBox1
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listBox1.BackColor = System.Drawing.Color.White;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(98, 112);
@@ -130,11 +133,12 @@
             // 
             this.btn_Abfahrt.BackColor = System.Drawing.Color.Gray;
             this.btn_Abfahrt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_Abfahrt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Abfahrt.ForeColor = System.Drawing.Color.White;
             this.btn_Abfahrt.Location = new System.Drawing.Point(391, 76);
             this.btn_Abfahrt.Name = "btn_Abfahrt";
             this.btn_Abfahrt.Size = new System.Drawing.Size(115, 34);
-            this.btn_Abfahrt.TabIndex = 8;
+            this.btn_Abfahrt.TabIndex = 4;
             this.btn_Abfahrt.Text = "Abfahrtstafel";
             this.btn_Abfahrt.UseVisualStyleBackColor = false;
             this.btn_Abfahrt.Click += new System.EventHandler(this.btn_Abfahrt_Click);
@@ -155,7 +159,7 @@
             // 
             // listBox3
             // 
-            this.listBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.listBox3.BackColor = System.Drawing.Color.White;
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 20;
             this.listBox3.Location = new System.Drawing.Point(608, 112);
@@ -217,11 +221,13 @@
             // btn_Switch
             // 
             this.btn_Switch.BackColor = System.Drawing.Color.Gray;
-            this.btn_Switch.Location = new System.Drawing.Point(463, 152);
+            this.btn_Switch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Switch.ForeColor = System.Drawing.Color.White;
+            this.btn_Switch.Location = new System.Drawing.Point(463, 123);
             this.btn_Switch.Name = "btn_Switch";
             this.btn_Switch.Size = new System.Drawing.Size(75, 35);
             this.btn_Switch.TabIndex = 14;
-            this.btn_Switch.Text = "§";
+            this.btn_Switch.Text = "<-->";
             this.btn_Switch.UseVisualStyleBackColor = false;
             this.btn_Switch.Click += new System.EventHandler(this.btn_Switch_Click_1);
             // 

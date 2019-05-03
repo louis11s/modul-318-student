@@ -40,7 +40,14 @@ namespace Farplan_App_GUI
             myStations = t.GetStations(tBvon.Text);
             foreach (Station station in myStations.StationList)
             {
-               listBox1.Items.Add(station.Name);
+                try
+                {
+                    listBox1.Items.Add(station.Name);
+                }
+                catch
+                {
+                    MessageBox.Show("Fehler bitte erneut versuchen");
+                }
             }
 
         }
@@ -119,14 +126,20 @@ namespace Farplan_App_GUI
 
             string name = tBvon.Text;
             string id = "";
-
-            foreach (Station s in myStations.StationList)
+            try
             {
-                if (s.Name == name)
+                foreach (Station s in myStations.StationList)
                 {
-                    id = s.Id;
-                    break;
+                    if (s.Name == name)
+                    {
+                        id = s.Id;
+                        break;
+                    }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Fehler bitte erneut versuchen");
             }
 
             StationBoardRoot stationBoard = t.GetStationBoard(name, id);
@@ -142,9 +155,41 @@ namespace Farplan_App_GUI
                 }
                 catch
                 {
-                    MessageBox.Show("Ungültiger Wert");
+                    MessageBox.Show("Fehler bitte erneut versuchen");
                 }
             }
+        }
+        private void autoFill(KeyEventArgs e, TextBox textBoxName, ListBox listBoxName)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Up)
+                {
+                    listBoxName.SelectedIndex--;
+                }
+                else if (e.KeyCode == Keys.Down)
+                {
+                    listBoxName.SelectedIndex++;
+                }
+                else if (e.KeyCode == Keys.Enter)
+                {
+                    textBoxName.Text = listBoxName.SelectedItems[0].ToString();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void tBvon_KeyDown(object sender, KeyEventArgs e)
+        {
+            autoFill(e, tBvon, listBox1);
+        }
+
+        private void tBnach_KeyDown(object sender, KeyEventArgs e)
+        {
+            autoFill(e, tBnach, listBox3);
         }
     }
 }
