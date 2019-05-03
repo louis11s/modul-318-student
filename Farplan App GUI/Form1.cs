@@ -232,5 +232,11 @@ namespace Farplan_App_GUI
                 MessageBox.Show("Geben Sie bitte eine gültige Station ein.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btn_MeinStandort_Click(object sender, EventArgs e)
+        {
+            ChangeTab(tabPage2);
+            webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=", System.UriKind.Absolute);
+        }
     }
 }
