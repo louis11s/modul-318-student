@@ -207,25 +207,30 @@ namespace Farplan_App_GUI
         {
             autoFill(e, tBnach, listBox3);
         }
-
+        //Um Google Maps aufzurufen
+        private void ChangeTab(TabPage TabPageName)
+        {
+            Menu.SelectTab(TabPageName);
+        }
         private void createGoogleMaps(string stationName)
         {
-            try
-            {
-                Station stations = t.GetStations(stationName).StationList.First();
+            Station stations = t.GetStations(stationName).StationList.First();
 
-                string xcoordinate = stations.Coordinate.XCoordinate.ToString();
-                string ycoordinate = stations.Coordinate.YCoordinate.ToString();
-                webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=" + xcoordinate.Replace(",", ".") + "," + ycoordinate.Replace(",", "."), System.UriKind.Absolute);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Station nicht gefunden");
-            }
+            string xcoordinate = stations.Coordinate.XCoordinate.ToString();
+            string ycoordinate = stations.Coordinate.YCoordinate.ToString();
+            webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=" + xcoordinate.Replace(",", ".") + "," + ycoordinate.Replace(",", "."), System.UriKind.Absolute);
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            createGoogleMaps(tBvon.Text);
+            try
+            {
+                ChangeTab(tabPage2);
+                createGoogleMaps(tBvon.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Geben Sie bitte eine gültige Station ein.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
