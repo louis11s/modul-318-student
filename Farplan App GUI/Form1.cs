@@ -50,7 +50,7 @@ namespace Farplan_App_GUI
                     tBnach.Clear();
                     listBox1.Items.Clear();
                     listBox3.Items.Clear();
-                    MessageBox.Show("Fehler bitte erneut versuchen");                   
+                    MessageBox.Show("Station nicht gefunden");                   
                 }
             }
 
@@ -63,11 +63,18 @@ namespace Farplan_App_GUI
 
         private void tBnach_TextChanged(object sender, EventArgs e)
         {
-            listBox3.Items.Clear();
-            Stations myStations = t.GetStations(tBnach.Text);
-            foreach (Station station in myStations.StationList)
+            try
             {
-                listBox3.Items.Add(station.Name);
+                listBox3.Items.Clear();
+                Stations myStations = t.GetStations(tBnach.Text);
+                foreach (Station station in myStations.StationList)
+                {
+                    listBox3.Items.Add(station.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Station nicht gefunden");
             }
         }
 
@@ -83,17 +90,24 @@ namespace Farplan_App_GUI
         }
         private void verbindung(ListView ListViewName)
         {
-            Connections Verbindungen = t.GetConnections(tBvon.Text, tBnach.Text);
-
-            foreach (Connection verbindung in Verbindungen.ConnectionList)
+            try
             {
-                ListViewItem item = new ListViewItem();
-                item.SubItems.Add(verbindung.From.Station.Name);
-                item.SubItems.Add(verbindung.To.Station.Name);
-                DateTime Abfahrtszeit = Convert.ToDateTime(verbindung.From.Departure);
-                item.SubItems.Add(Abfahrtszeit.TimeOfDay.ToString());
-                item.Text = Abfahrtszeit.Date.ToString("ddd.dd.MM");
-                listView1.Items.AddRange(new ListViewItem[] { item });
+                Connections Verbindungen = t.GetConnections(tBvon.Text, tBnach.Text);
+
+                foreach (Connection verbindung in Verbindungen.ConnectionList)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.SubItems.Add(verbindung.From.Station.Name);
+                    item.SubItems.Add(verbindung.To.Station.Name);
+                    DateTime Abfahrtszeit = Convert.ToDateTime(verbindung.From.Departure);
+                    item.SubItems.Add(Abfahrtszeit.TimeOfDay.ToString());
+                    item.Text = Abfahrtszeit.Date.ToString("ddd.dd.MM");
+                    listView1.Items.AddRange(new ListViewItem[] { item });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -101,13 +115,13 @@ namespace Farplan_App_GUI
         {
             showStationBoard();
         }
-        //Die Funktion mit dem Austauschen der Stationen funktioniert nicht//
         private void btn_Switch_Click_1(object sender, EventArgs e)
         {
-            listBox3.Items.Add(tBnach.Text);
-            listBox1.Items.Add(tBvon.Text);           
-            tBnach.Text = listBox1.Items[0].ToString();
-            tBvon.Text = listBox3.Items[0].ToString();            
+            string Wechseln = tBvon.Text;
+            tBvon.Text = tBnach.Text;
+            tBnach.Text = Wechseln;
+            listBox3.Items.Clear();
+            listBox1.Items.Clear();
 
 
         }
@@ -138,30 +152,26 @@ namespace Farplan_App_GUI
                         break;
                     }
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Fehler bitte erneut versuchen");
-                tBvon.Clear();
-                tBnach.Clear();
-            }
+            
+
+
 
             StationBoardRoot stationBoard = t.GetStationBoard(name, id);
-            foreach(StationBoard stationboard in stationBoard.Entries)
+            foreach (StationBoard stationboard in stationBoard.Entries)
             {
-                try
-                {
-                    ListViewItem item1 = new ListViewItem();
-                    item1.SubItems.Add(tBvon.Text);
-                    item1.SubItems.Add(stationboard.To);
-                    item1.SubItems.Add(stationboard.Entries.Departure.ToShortTimeString());
-                    listView1.Items.Add(item1);
-                }
-                catch
-                {
-                    MessageBox.Show("Fehler bitte erneut versuchen");
-                }
+
+                ListViewItem item1 = new ListViewItem();
+                item1.SubItems.Add(tBvon.Text);
+                item1.SubItems.Add(stationboard.To);
+                item1.SubItems.Add(stationboard.Entries.Departure.ToShortTimeString());
+                listView1.Items.Add(item1);
+
             }
+            } 
+            catch 
+               {
+                MessageBox.Show("Station nicht gefunden");
+               }
         }
         private void autoFill(KeyEventArgs e, TextBox textBoxName, ListBox listBoxName)
         {
@@ -178,11 +188,13 @@ namespace Farplan_App_GUI
                 else if (e.KeyCode == Keys.Enter)
                 {
                     textBoxName.Text = listBoxName.SelectedItems[0].ToString();
+                    listBox3.Items.Clear();
+                    listBox1.Items.Clear();
                 }
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -198,11 +210,18 @@ namespace Farplan_App_GUI
 
         private void createGoogleMaps(string stationName)
         {
-            Station stations = t.GetStations(stationName).StationList.First();
+            try
+            {
+                Station stations = t.GetStations(stationName).StationList.First();
 
-            string xcoordinate = stations.Coordinate.XCoordinate.ToString();
-            string ycoordinate = stations.Coordinate.YCoordinate.ToString();
-            webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=" + xcoordinate.Replace(",",".") + "," + ycoordinate.Replace(",","."), System.UriKind.Absolute);
+                string xcoordinate = stations.Coordinate.XCoordinate.ToString();
+                string ycoordinate = stations.Coordinate.YCoordinate.ToString();
+                webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=" + xcoordinate.Replace(",", ".") + "," + ycoordinate.Replace(",", "."), System.UriKind.Absolute);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Station nicht gefunden");
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {

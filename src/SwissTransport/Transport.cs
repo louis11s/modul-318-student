@@ -33,11 +33,11 @@ namespace SwissTransport
             var responseStream = response.GetResponseStream();
 
             if (responseStream != null)
-            {
-                var readToEnd = new StreamReader(responseStream).ReadToEnd();
-                var stationboard =
-                    JsonConvert.DeserializeObject<StationBoardRoot>(readToEnd);
-                return stationboard;
+            {                
+                    var readToEnd = new StreamReader(responseStream).ReadToEnd();
+                    var stationboard =
+                        JsonConvert.DeserializeObject<StationBoardRoot>(readToEnd);
+                    return stationboard;               
             }
 
             return null;

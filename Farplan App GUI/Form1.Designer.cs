@@ -116,7 +116,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(98, 250);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(315, 26);
-            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.TabIndex = 7;
             // 
             // listBox1
             // 
@@ -213,7 +213,7 @@
             this.btn_Switch.Location = new System.Drawing.Point(463, 159);
             this.btn_Switch.Name = "btn_Switch";
             this.btn_Switch.Size = new System.Drawing.Size(75, 35);
-            this.btn_Switch.TabIndex = 7;
+            this.btn_Switch.TabIndex = 6;
             this.btn_Switch.Text = "<-->";
             this.btn_Switch.UseVisualStyleBackColor = false;
             this.btn_Switch.Click += new System.EventHandler(this.btn_Switch_Click_1);
