@@ -46,7 +46,11 @@ namespace Farplan_App_GUI
                 }
                 catch
                 {
-                    MessageBox.Show("Fehler bitte erneut versuchen");
+                    tBvon.Clear();
+                    tBnach.Clear();
+                    listBox1.Items.Clear();
+                    listBox3.Items.Clear();
+                    MessageBox.Show("Fehler bitte erneut versuchen");                   
                 }
             }
 
@@ -88,9 +92,7 @@ namespace Farplan_App_GUI
                 item.SubItems.Add(verbindung.To.Station.Name);
                 DateTime Abfahrtszeit = Convert.ToDateTime(verbindung.From.Departure);
                 item.SubItems.Add(Abfahrtszeit.TimeOfDay.ToString());
-                item.SubItems.Add(verbindung.From.Platform);
                 item.Text = Abfahrtszeit.Date.ToString("ddd.dd.MM");
-                item.SubItems.Add(verbindung.Duration);
                 listView1.Items.AddRange(new ListViewItem[] { item });
             }
         }
@@ -140,6 +142,8 @@ namespace Farplan_App_GUI
             catch
             {
                 MessageBox.Show("Fehler bitte erneut versuchen");
+                tBvon.Clear();
+                tBnach.Clear();
             }
 
             StationBoardRoot stationBoard = t.GetStationBoard(name, id);
@@ -190,6 +194,19 @@ namespace Farplan_App_GUI
         private void tBnach_KeyDown(object sender, KeyEventArgs e)
         {
             autoFill(e, tBnach, listBox3);
+        }
+
+        private void createGoogleMaps(string stationName)
+        {
+            Station stations = t.GetStations(stationName).StationList.First();
+
+            string xcoordinate = stations.Coordinate.XCoordinate.ToString();
+            string ycoordinate = stations.Coordinate.YCoordinate.ToString();
+            webBrowser1.Url = new System.Uri("https://www.google.com/maps?q=" + xcoordinate.Replace(",",".") + "," + ycoordinate.Replace(",","."), System.UriKind.Absolute);
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            createGoogleMaps(tBvon.Text);
         }
     }
 }

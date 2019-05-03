@@ -44,9 +44,9 @@
             this.Von = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Nach = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Abfahrtszeit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Gleis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Dauer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Switch = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.btn_Maps = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_Suchen
@@ -116,7 +116,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(98, 250);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(315, 26);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // listBox1
             // 
@@ -150,7 +150,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SlateBlue;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(456, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 37);
@@ -170,20 +170,17 @@
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Datum,
             this.Von,
             this.Nach,
-            this.Abfahrtszeit,
-            this.Gleis,
-            this.Dauer});
-            this.listView1.Location = new System.Drawing.Point(98, 323);
+            this.Abfahrtszeit});
+            this.listView1.Location = new System.Drawing.Point(28, 323);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(905, 289);
+            this.listView1.Size = new System.Drawing.Size(664, 319);
             this.listView1.TabIndex = 13;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -191,7 +188,7 @@
             // Datum
             // 
             this.Datum.Text = "Datum";
-            this.Datum.Width = 120;
+            this.Datum.Width = 80;
             // 
             // Von
             // 
@@ -206,37 +203,53 @@
             // Abfahrtszeit
             // 
             this.Abfahrtszeit.Text = "Abfahrtszeit";
-            this.Abfahrtszeit.Width = 120;
-            // 
-            // Gleis
-            // 
-            this.Gleis.Text = "Gleis";
-            this.Gleis.Width = 40;
-            // 
-            // Dauer
-            // 
-            this.Dauer.Text = "Dauer";
-            this.Dauer.Width = 100;
+            this.Abfahrtszeit.Width = 80;
             // 
             // btn_Switch
             // 
             this.btn_Switch.BackColor = System.Drawing.Color.Gray;
             this.btn_Switch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Switch.ForeColor = System.Drawing.Color.White;
-            this.btn_Switch.Location = new System.Drawing.Point(463, 123);
+            this.btn_Switch.Location = new System.Drawing.Point(463, 159);
             this.btn_Switch.Name = "btn_Switch";
             this.btn_Switch.Size = new System.Drawing.Size(75, 35);
-            this.btn_Switch.TabIndex = 14;
+            this.btn_Switch.TabIndex = 7;
             this.btn_Switch.Text = "<-->";
             this.btn_Switch.UseVisualStyleBackColor = false;
             this.btn_Switch.Click += new System.EventHandler(this.btn_Switch_Click_1);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.webBrowser1.Location = new System.Drawing.Point(708, 266);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(758, 376);
+            this.webBrowser1.TabIndex = 15;
+            // 
+            // btn_Maps
+            // 
+            this.btn_Maps.BackColor = System.Drawing.Color.Gray;
+            this.btn_Maps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Maps.ForeColor = System.Drawing.Color.White;
+            this.btn_Maps.Location = new System.Drawing.Point(391, 112);
+            this.btn_Maps.Name = "btn_Maps";
+            this.btn_Maps.Size = new System.Drawing.Size(115, 34);
+            this.btn_Maps.TabIndex = 5;
+            this.btn_Maps.Text = "Standort";
+            this.btn_Maps.UseVisualStyleBackColor = false;
+            this.btn_Maps.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1069, 638);
+            this.ClientSize = new System.Drawing.Size(1478, 668);
+            this.Controls.Add(this.btn_Maps);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.btn_Switch);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.listBox3);
@@ -250,8 +263,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Suchen);
-            this.MaximumSize = new System.Drawing.Size(1091, 1000);
-            this.MinimumSize = new System.Drawing.Size(1091, 694);
+            this.MaximumSize = new System.Drawing.Size(1500, 1000);
+            this.MinimumSize = new System.Drawing.Size(1500, 694);
             this.Name = "Form1";
             this.Text = "Fahrplan";
             this.ResumeLayout(false);
@@ -277,9 +290,9 @@
         private System.Windows.Forms.ColumnHeader Von;
         private System.Windows.Forms.ColumnHeader Nach;
         private System.Windows.Forms.ColumnHeader Abfahrtszeit;
-        private System.Windows.Forms.ColumnHeader Gleis;
-        private System.Windows.Forms.ColumnHeader Dauer;
         private System.Windows.Forms.Button btn_Switch;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button btn_Maps;
     }
 }
 
