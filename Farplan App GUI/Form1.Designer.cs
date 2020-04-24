@@ -30,7 +30,7 @@
         {
             this.Menu = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btn_MeinStandort = new System.Windows.Forms.Button();
             this.btn_Maps = new System.Windows.Forms.Button();
             this.btn_Switch = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -49,9 +49,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Suchen = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btn_MeinStandort = new System.Windows.Forms.Button();
             this.Menu.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -92,16 +92,18 @@
             this.tabPage1.Text = "Menu";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // btn_MeinStandort
             // 
-            this.tabPage2.Controls.Add(this.webBrowser1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1041, 652);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Standort";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.btn_MeinStandort.BackColor = System.Drawing.Color.Gray;
+            this.btn_MeinStandort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MeinStandort.ForeColor = System.Drawing.Color.White;
+            this.btn_MeinStandort.Location = new System.Drawing.Point(810, 315);
+            this.btn_MeinStandort.Name = "btn_MeinStandort";
+            this.btn_MeinStandort.Size = new System.Drawing.Size(156, 34);
+            this.btn_MeinStandort.TabIndex = 30;
+            this.btn_MeinStandort.Text = "Mein Standort";
+            this.btn_MeinStandort.UseVisualStyleBackColor = false;
+            this.btn_MeinStandort.Click += new System.EventHandler(this.btn_MeinStandort_Click);
             // 
             // btn_Maps
             // 
@@ -221,9 +223,11 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(88, 242);
+            this.dateTimePicker1.MinDate = new System.DateTime(2019, 5, 8, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(315, 26);
             this.dateTimePicker1.TabIndex = 26;
+            this.dateTimePicker1.Value = new System.DateTime(2019, 5, 8, 10, 0, 0, 0);
             // 
             // label3
             // 
@@ -287,6 +291,17 @@
             this.btn_Suchen.UseVisualStyleBackColor = false;
             this.btn_Suchen.Click += new System.EventHandler(this.btn_Suchen_Click);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.webBrowser1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1041, 652);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Standort";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // webBrowser1
             // 
             this.webBrowser1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -297,19 +312,6 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1032, 643);
             this.webBrowser1.TabIndex = 31;
-            // 
-            // btn_MeinStandort
-            // 
-            this.btn_MeinStandort.BackColor = System.Drawing.Color.Gray;
-            this.btn_MeinStandort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_MeinStandort.ForeColor = System.Drawing.Color.White;
-            this.btn_MeinStandort.Location = new System.Drawing.Point(810, 315);
-            this.btn_MeinStandort.Name = "btn_MeinStandort";
-            this.btn_MeinStandort.Size = new System.Drawing.Size(156, 34);
-            this.btn_MeinStandort.TabIndex = 30;
-            this.btn_MeinStandort.Text = "Mein Standort";
-            this.btn_MeinStandort.UseVisualStyleBackColor = false;
-            this.btn_MeinStandort.Click += new System.EventHandler(this.btn_MeinStandort_Click);
             // 
             // Form1
             // 
