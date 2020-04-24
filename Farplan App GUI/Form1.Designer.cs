@@ -99,10 +99,10 @@
             this.btn_MeinStandort.BackColor = System.Drawing.Color.Gray;
             this.btn_MeinStandort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_MeinStandort.ForeColor = System.Drawing.Color.White;
-            this.btn_MeinStandort.Location = new System.Drawing.Point(801, 134);
+            this.btn_MeinStandort.Location = new System.Drawing.Point(340, 110);
             this.btn_MeinStandort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_MeinStandort.Name = "btn_MeinStandort";
-            this.btn_MeinStandort.Size = new System.Drawing.Size(106, 27);
+            this.btn_MeinStandort.Size = new System.Drawing.Size(111, 27);
             this.btn_MeinStandort.TabIndex = 30;
             this.btn_MeinStandort.Text = "Mein Standort";
             this.btn_MeinStandort.UseVisualStyleBackColor = false;
@@ -116,9 +116,9 @@
             this.btn_Maps.Location = new System.Drawing.Point(340, 58);
             this.btn_Maps.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Maps.Name = "btn_Maps";
-            this.btn_Maps.Size = new System.Drawing.Size(102, 27);
+            this.btn_Maps.Size = new System.Drawing.Size(111, 48);
             this.btn_Maps.TabIndex = 22;
-            this.btn_Maps.Text = "Haltestelle";
+            this.btn_Maps.Text = "Haltestelle Standort";
             this.btn_Maps.UseVisualStyleBackColor = false;
             this.btn_Maps.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -127,7 +127,7 @@
             this.btn_Switch.BackColor = System.Drawing.Color.Gray;
             this.btn_Switch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Switch.ForeColor = System.Drawing.Color.White;
-            this.btn_Switch.Location = new System.Drawing.Point(403, 121);
+            this.btn_Switch.Location = new System.Drawing.Point(402, 155);
             this.btn_Switch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Switch.Name = "btn_Switch";
             this.btn_Switch.Size = new System.Drawing.Size(67, 28);
@@ -208,10 +208,10 @@
             this.btn_Abfahrt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_Abfahrt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Abfahrt.ForeColor = System.Drawing.Color.White;
-            this.btn_Abfahrt.Location = new System.Drawing.Point(340, 89);
+            this.btn_Abfahrt.Location = new System.Drawing.Point(801, 124);
             this.btn_Abfahrt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Abfahrt.Name = "btn_Abfahrt";
-            this.btn_Abfahrt.Size = new System.Drawing.Size(102, 27);
+            this.btn_Abfahrt.Size = new System.Drawing.Size(117, 27);
             this.btn_Abfahrt.TabIndex = 21;
             this.btn_Abfahrt.Text = "Abfahrtstafel";
             this.btn_Abfahrt.UseVisualStyleBackColor = false;
@@ -238,7 +238,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(280, 22);
             this.dateTimePicker1.TabIndex = 26;
-            this.dateTimePicker1.Value = new System.DateTime(2019, 5, 8, 10, 0, 0, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2020, 4, 20, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -299,9 +299,9 @@
             this.btn_Suchen.Location = new System.Drawing.Point(801, 58);
             this.btn_Suchen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Suchen.Name = "btn_Suchen";
-            this.btn_Suchen.Size = new System.Drawing.Size(106, 62);
+            this.btn_Suchen.Size = new System.Drawing.Size(117, 62);
             this.btn_Suchen.TabIndex = 20;
-            this.btn_Suchen.Text = "Anzeigen";
+            this.btn_Suchen.Text = "Verbindungen Anzeigen";
             this.btn_Suchen.UseVisualStyleBackColor = false;
             this.btn_Suchen.Click += new System.EventHandler(this.btn_Suchen_Click);
             // 
@@ -314,7 +314,6 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Size = new System.Drawing.Size(924, 519);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Standort";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // webBrowser1

@@ -208,7 +208,7 @@ namespace Farplan_App_GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Drücken sie einen Button", ex.Message);
             }
         }
 
