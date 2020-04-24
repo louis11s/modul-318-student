@@ -99,10 +99,10 @@
             this.btn_MeinStandort.BackColor = System.Drawing.Color.Gray;
             this.btn_MeinStandort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_MeinStandort.ForeColor = System.Drawing.Color.White;
-            this.btn_MeinStandort.Location = new System.Drawing.Point(720, 252);
+            this.btn_MeinStandort.Location = new System.Drawing.Point(801, 134);
             this.btn_MeinStandort.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_MeinStandort.Name = "btn_MeinStandort";
-            this.btn_MeinStandort.Size = new System.Drawing.Size(139, 27);
+            this.btn_MeinStandort.Size = new System.Drawing.Size(106, 27);
             this.btn_MeinStandort.TabIndex = 30;
             this.btn_MeinStandort.Text = "Mein Standort";
             this.btn_MeinStandort.UseVisualStyleBackColor = false;
@@ -150,7 +150,7 @@
             this.listView1.Location = new System.Drawing.Point(16, 252);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(611, 250);
+            this.listView1.Size = new System.Drawing.Size(772, 250);
             this.listView1.TabIndex = 29;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
